@@ -1,0 +1,94 @@
+#home {
+    background-image: url('../../assets/img/oil.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    
+
+    section {
+        background-color: rgba(217, 217, 238, 0.5);
+        padding-left: $md;
+        padding-right: $md;
+        height: 80%;
+        width: 35%;
+        margin-top: 4rem;
+        border-radius: 5px;
+    }
+
+    .cube{
+        font-size: 8rem;
+        color: cornsilk;
+    }
+
+    h1{
+        text-align: center;
+        font-size: $lg;
+        color: darkgreen;
+        font-weight: 400;
+    }
+
+    .play-button-container{
+        width: 100%;
+    }
+
+    a.play-button{
+        background-color: rgba(230, 95, 86, 0.582);
+        display: block;
+        border-radius: $button-radius;
+        color: white;
+        cursor: pointer;
+        padding: $normal;
+        text-align: center;
+        transition: 0.3% linear all;
+    }
+
+    a.play-button:hover{
+        background-color: darken($color: rgba(230, 95, 86, 0.582), $amount:10%);
+        box-shadow: $shadow;
+    }
+
+    .auth-container{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #login{
+        background-color: lightseagreen;
+    }
+    #login:hover{
+        background-color: darken(lightseagreen, 10%);
+        box-shadow: $shadow;
+    }
+
+    #signup{
+        background-color:forestgreen;
+    }
+    #signup:hover{
+        background-color:darken($color: forestgreen, $amount: 10%);
+        box-shadow: $shadow;
+    }
+
+
+    .auth-container .auth-buttons{
+        color: white;
+        margin-top: $md;
+        cursor: pointer;
+        border-radius: $button-radius;
+        padding: $normal 0;
+        text-align: center;
+        width: 45%;
+        transition: 0.3% linear all;
+    }
+}
+
+@media (max-width: 768px) {
+    #home section{
+        padding: 0 $normal;
+        width: 100%;
+        height: 100%;
+    }
+}

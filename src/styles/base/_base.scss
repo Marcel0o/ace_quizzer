@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+// body{
+//     font-family: ;
+// }
+
+.toast-invalid {
+    border-radius: 5px !important;
+    color: whitesmoke !important;
+    background-color: $error-text !important;
+}
+
+.toast-valid {
+    border-radius: 5px !important;
+    color: whitesmoke !important;
+    background-color: $success-text !important;
+}
+
+
