@@ -11,10 +11,21 @@
 
     }
 
+    
+
     .lifeline {
         position: relative;
         top: -3px;
     }
+    
+    .lifeline-icon {
+         color: green;
+         cursor: pointer;   
+        }
+    .lifeline-icon:hover {
+         color: darken($color: orange, $amount: 10%);
+         background: none; 
+        } 
 
     h2 {
         text-align: center;
@@ -34,7 +45,7 @@
 
     .option {
         background-color: slategrey;
-        border-radius: $button-radius;
+        border-radius: 2px;
         color: snow;
         cursor: pointer;
         margin: $md auto ;
@@ -42,6 +53,10 @@
         transition: 0.3% linear all;
         text-align: center;
         width: 90%;
+    }
+
+    .lifeline-icon {
+        
     }
 
     .option:hover {
