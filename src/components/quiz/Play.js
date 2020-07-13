@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 import M from 'materialize-css';
-
+import QuestionNumber from "./QuestionNumber"
 import questions from '../../questions.json';
 import isEmpty from '../../utils/is-empty'
 
@@ -163,6 +163,10 @@ class Play extends Component {
                         <span className="left" style={{ float: 'left'}}> 1 of 5</span>
                         <span className="right">2:00<span className="mdi mdi-clock-outline mdi-24px"></span></span>
                     </p>
+                </div>
+
+                <div>
+                    <QuestionNumber currentQuestion = { currentQuestion }/>
                 </div>
         <h5>{ currentQuestion.question }</h5>
                 <div className="options-container">
