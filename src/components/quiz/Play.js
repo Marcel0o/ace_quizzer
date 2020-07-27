@@ -28,7 +28,8 @@ class Play extends Component {
             fiftyFifty: 2,
             usedFiftyFifty: false,
             previousRandNumber: [],
-            time: {}
+            time: {},
+            selectedAnswer: ''
         };
         this.interval = null
     }
@@ -39,7 +40,7 @@ class Play extends Component {
         this.startTimer();
     }
 
-    displayQuestions = (questions = this.state.questions, currentQuestion, nextQuestion, previousQuestion) => {
+    displayQuestions = (questions = this.state.questions, currentQuestion, nextQuestion, previousQuestion, selectedAnswer) => {
         let { currentQuestionIndex } = this.state;
         if (!isEmpty(this.state.questions)) {
             questions = this.state.questions;
@@ -47,6 +48,7 @@ class Play extends Component {
             nextQuestion = questions[currentQuestionIndex + 1];
             previousQuestion = questions[currentQuestionIndex - 1];
             const answer = currentQuestion.answer;
+            selectedAnswer = ''
             this.setState({
                 currentQuestion,
                 nextQuestion,
@@ -84,6 +86,7 @@ class Play extends Component {
     };
 
     handleOptionClick = (e) => {
+        this.setState({ selectedAnswer: e.target.innerHTML})
        if (e.target.innerHTML.toLowerCase() === this.state.answer.toLowerCase()) {
             setTimeout(() => {
                 document.getElementById('correct-sound').play();
@@ -96,8 +99,16 @@ class Play extends Component {
            }, 250);
             this.wrongAnswer();
        }
-    };
+    };    
     
+    numClick = id => {
+        id = id - 1
+        this.setState({currentQuestionIndex: id}, () => {
+            this.displayQuestions(this.state.state, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+        });
+    }
+
+
     handleQuitButtonClick = () => {
         this.playButtonSound();
         window.confirm('Are you sure you want to quit?')
@@ -170,6 +181,8 @@ class Play extends Component {
             usedFiftyFifty: false
         });
     }
+
+
 
     handleHints = () => {
          if (this.state.hints > 0) {
@@ -292,6 +305,12 @@ class Play extends Component {
                 <audio id="wrong-sound" src={wrongNotification}></audio>
                 <audio id="button-sound" src={buttonSound}></audio>
             </Fragment>
+            
+            <div className="container">
+                {this.state.questions.map(number => (
+                        <button className="qn" onClick={this.numClick.bind(this, number.id)}>{number.id}</button>
+                    ))}
+            </div>
             <div className="questions">
                 <div className="lifeline-container">
                     <p>
@@ -305,15 +324,11 @@ class Play extends Component {
                 </div>
                 <div>
                     <p>
-                        <span className="left" style={{ float: 'left'}}>{currentQuestionIndex + 1} of { numberofQuestions}</span>
                         <span className="right">{time.minuites}:{time.seconds}<span className="mdi mdi-clock-outline mdi-24px"></span></span>
                     </p><br/>
-                    <p className="prog">{(currentQuestionIndex + 1) / numberofQuestions * 100}  </p>
                 </div>
 
-                <div>
-                    <QuestionNumber currentQuestion = { currentQuestion }/>
-                </div>
+                
         <h5>{ currentQuestion.question }</h5>
                 <div className="options-container">
                     <p onClick={this.handleOptionClick} className="option">{ currentQuestion.optionA }</p>

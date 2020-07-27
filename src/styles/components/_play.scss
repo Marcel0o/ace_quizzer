@@ -115,3 +115,46 @@
     box-shadow: $shadow;
     transition: 0.2% linear all;
 }
+
+.qn {
+    background-color: blue;
+    margin-right: 2px;
+    float: left;
+    border: none;
+    color: snow;
+    cursor: pointer;
+    padding: $xs $sm;
+}
+
+.qn:hover {
+    background-color: darken($color: blue, $amount: 20%);
+    box-shadow: $shadow;
+    transition: 0.2% linear all;
+    margin-right: 2px;
+    float: left;
+    border: none;
+    color: snow;
+    cursor: pointer;
+    padding: $xs $sm;
+}
+.qn .selected {
+    background-color: darken($color: blue, $amount: 20%);
+    box-shadow: $shadow;
+    transition: 0.2% linear all;
+    margin-right: 2px;
+    float: left;
+    border: none;
+    color: snow;
+    cursor: pointer;
+    padding: $xs $sm;
+}
+
+.qn-container{
+    background-color: blanchedalmond;
+    border-left: 5px solid skyblue;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto $sm auto;
+    padding: $md;
+}
